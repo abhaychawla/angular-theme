@@ -1,0 +1,22 @@
+
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "9.5"
+
+before_script:
+  - npm i npm@latest -g
+  - npm install -g --silent @angular/cli
+
+script:
+  - ng build --prod --output-hashing=none --base-href="/angular-theme/"
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: dist/angular-theme
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
