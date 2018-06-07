@@ -22,14 +22,34 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "extractCss": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/theme/bootstrap/default.scss",
+                "bundleName": "theme/bootstrap/default",
+                "lazy": true
+              },
+              {
+                "input": "src/theme/bootstrap/light.scss",
+                "bundleName": "theme/bootstrap/light",
+                "lazy": true
+              },
+              {
+                "input": "src/theme/bootstrap/dark.scss",
+                "bundleName": "theme/bootstrap/dark",
+                "lazy": true
+              }
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
